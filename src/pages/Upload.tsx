@@ -10,8 +10,9 @@ import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 
 // PDF.js for browser-side text extraction
-import * as pdfjsLib from "pdfjs-dist";
-import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+// Legacy build avoids top-level await (which esbuild can't inline)
+import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
+import pdfWorker from "pdfjs-dist/legacy/build/pdf.worker.min.mjs?url";
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 async function extractPdfText(file: File): Promise<string> {
