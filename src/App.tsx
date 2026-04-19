@@ -10,6 +10,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import Upload from "./pages/Upload";
 import CvEditor from "./pages/CvEditor";
+import CvExport from "./pages/CvExport";
 import NotFound from "./pages/NotFound.tsx";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/upload" element={<ProtectedRoute><Upload /></ProtectedRoute>} />
           <Route path="/cv/:id/edit" element={<ProtectedRoute><CvEditor /></ProtectedRoute>} />
+          <Route path="/cv/:id/export" element={<ProtectedRoute><CvExport /></ProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
