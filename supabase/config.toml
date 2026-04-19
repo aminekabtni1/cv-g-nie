@@ -2,3 +2,9 @@ project_id = "hwadlwgyecmvlflkfpst"
 
 [functions.extract-cv]
 verify_jwt = true
+
+[functions.improve-cv]
+verify_jwt = true
+
+[functions.cv-report]
+verify_jwt = true
