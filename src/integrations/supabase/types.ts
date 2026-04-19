@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      cvs: {
+        Row: {
+          contenu_json: Json | null
+          contenu_normalise: string | null
+          created_at: string
+          id: string
+          poste_cible: string | null
+          titre: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          contenu_json?: Json | null
+          contenu_normalise?: string | null
+          created_at?: string
+          id?: string
+          poste_cible?: string | null
+          titre?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          contenu_json?: Json | null
+          contenu_normalise?: string | null
+          created_at?: string
+          id?: string
+          poste_cible?: string | null
+          titre?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
