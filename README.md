@@ -1,3 +1,6 @@
-# Welcome to your Lovable project
+welcome to test the project 
 
-TODO: Document your project here
+clone repo in your local 
+git clone (repo link)
+cd cv-g-nie
+npm run dev 
