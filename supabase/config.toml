@@ -1,10 +1,10 @@
 project_id = "hwadlwgyecmvlflkfpst"
 
 [functions.extract-cv]
-verify_jwt = true
+verify_jwt = false
 
 [functions.improve-cv]
-verify_jwt = true
+verify_jwt = false
 
 [functions.cv-report]
-verify_jwt = true
+verify_jwt = false
