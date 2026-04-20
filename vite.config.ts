@@ -13,6 +13,9 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  optimizeDeps: {
+    exclude: ["pdfjs-dist"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
