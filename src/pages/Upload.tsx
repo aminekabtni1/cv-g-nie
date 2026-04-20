@@ -9,13 +9,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 
-// PDF.js for browser-side text extraction
-// Legacy build avoids top-level await (which esbuild can't inline)
-import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
-import pdfWorker from "pdfjs-dist/legacy/build/pdf.worker.min.mjs?url";
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
-
+// PDF.js loaded lazily to avoid esbuild top-level-await pre-bundling issues
 async function extractPdfText(file: File): Promise<string> {
+  const pdfjsLib: any = await import("pdfjs-dist/legacy/build/pdf.mjs");
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.379/legacy/build/pdf.worker.min.mjs`;
   const buf = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
   let text = "";
