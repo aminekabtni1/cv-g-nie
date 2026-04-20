@@ -15,6 +15,15 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   optimizeDeps: {
     exclude: ["pdfjs-dist"],
+    esbuildOptions: {
+      target: "esnext",
+    },
+  },
+  build: {
+    target: "esnext",
+  },
+  esbuild: {
+    target: "esnext",
   },
   resolve: {
     alias: {
